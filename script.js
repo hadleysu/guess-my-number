@@ -2,7 +2,6 @@
 
 // Generate secret number
 let secretNumber = Math.trunc(Math.random() * 20 + 1);
-console.log(secretNumber);
 
 let score = 20;
 let highScore = 0;
@@ -37,7 +36,6 @@ checkEl.addEventListener('click', function () {
       messageEl.textContent = guess < secretNumber ? 'Too low!' : 'Too high!';
       score--;
       scoreEl.textContent = score;
-      console.log(score);
       if (score === 0) {
         messageEl.textContent = '💥 You lost the game!';
       }
@@ -51,7 +49,6 @@ againEl.addEventListener('click', function () {
   scoreEl.textContent = score;
   messageEl.textContent = 'Start guessing...';
   secretNumber = Math.trunc(Math.random() * 20 + 1);
-  console.log(secretNumber);
   guessEl.value = '';
   bodyEl.style.background = '#222';
   numberEl.textContent = '?';
