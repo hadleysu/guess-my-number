@@ -16,6 +16,10 @@ const scoreEl = document.querySelector('.score');
 const highScoreEl = document.querySelector('.highscore');
 const againEl = document.querySelector('.again');
 
+const displayMessage = function (message) {
+  messageEl.textContent = message;
+};
+
 // Check botton addEventListener
 checkEl.addEventListener('click', function () {
   const guess = Number(guessEl.value);
