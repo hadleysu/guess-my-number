@@ -25,10 +25,10 @@ checkEl.addEventListener('click', function () {
   const guess = Number(guessEl.value);
   if (!guess) {
     // If the input value is invalid
-    messageEl.textContent = '⛔️ No number!';
+    displayMessage('⛔️ No number!');
   } else if (score > 0) {
     if (guess === secretNumber) {
-      messageEl.textContent = '🎉 Correct Number!';
+      displayMessage('🎉 Correct Number!');
       numberEl.textContent = secretNumber;
       numberEl.style.width = '30rem';
       bodyEl.style.background = '#60b347';
@@ -37,11 +37,11 @@ checkEl.addEventListener('click', function () {
         highScoreEl.textContent = highScore;
       }
     } else if (guess !== secretNumber) {
-      messageEl.textContent = guess < secretNumber ? 'Too low!' : 'Too high!';
+      displayMessage(guess < secretNumber ? 'Too low!' : 'Too high!');
       score--;
       scoreEl.textContent = score;
       if (score === 0) {
-        messageEl.textContent = '💥 You lost the game!';
+        displayMessage('💥 You lost the game!');
       }
     }
   }
@@ -51,7 +51,7 @@ checkEl.addEventListener('click', function () {
 againEl.addEventListener('click', function () {
   score = 20;
   scoreEl.textContent = score;
-  messageEl.textContent = 'Start guessing...';
+  displayMessage('Start guessing...');
   secretNumber = Math.trunc(Math.random() * 20 + 1);
   guessEl.value = '';
   bodyEl.style.background = '#222';
