@@ -33,16 +33,8 @@ checkEl.addEventListener('click', function () {
         highScore = score;
         highScoreEl.textContent = highScore;
       }
-    } else if (guess < secretNumber) {
-      messageEl.textContent = 'Too low!';
-      score--;
-      scoreEl.textContent = score;
-      console.log(score);
-      if (score === 0) {
-        messageEl.textContent = '💥 You lost the game!';
-      }
-    } else if (guess > secretNumber) {
-      messageEl.textContent = 'Too high!';
+    } else if (guess !== secretNumber) {
+      messageEl.textContent = guess < secretNumber ? 'Too low!' : 'Too high!';
       score--;
       scoreEl.textContent = score;
       console.log(score);
@@ -61,6 +53,7 @@ againEl.addEventListener('click', function () {
   scoreEl.textContent = score;
   messageEl.textContent = 'Start guessing...';
   secretNumber = Math.trunc(Math.random() * 20 + 1);
+  console.log(secretNumber);
   guessEl.value = '';
   bodyEl.style.background = '#222';
   numberEl.textContent = '?';
