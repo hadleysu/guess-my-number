@@ -15,8 +15,9 @@ const numberEl = document.querySelector('.number');
 const bodyEl = document.querySelector('body');
 const scoreEl = document.querySelector('.score');
 const highScoreEl = document.querySelector('.highscore');
+const againEl = document.querySelector('.again');
 
-// Check botton addEventListner
+// Check botton addEventListener
 checkEl.addEventListener('click', function () {
   const guess = Number(guessEl.value);
   if (!guess) {
@@ -52,4 +53,16 @@ checkEl.addEventListener('click', function () {
   } else {
     messageEl.textContent = '💥 You lost the game!';
   }
+});
+
+// Again button add event listener
+againEl.addEventListener('click', function () {
+  score = 20;
+  scoreEl.textContent = score;
+  messageEl.textContent = 'Start guessing...';
+  secretNumber = Math.trunc(Math.random() * 20 + 1);
+  guessEl.value = '';
+  bodyEl.style.background = '#222';
+  numberEl.textContent = '?';
+  numberEl.style.width = '15rem';
 });
