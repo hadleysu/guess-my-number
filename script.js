@@ -42,8 +42,6 @@ checkEl.addEventListener('click', function () {
         messageEl.textContent = '💥 You lost the game!';
       }
     }
-  } else {
-    messageEl.textContent = '💥 You lost the game!';
   }
 });
 
